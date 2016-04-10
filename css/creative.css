@@ -11,17 +11,15 @@ body {
 }
 
 body {
-    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+    font-family: Garamond,'Helvetica Neue',Arial,sans-serif;
 }
-
 hr {
-    max-width: 50px;
     border-color: #f05f40;
     border-width: 3px;
+    max-width: 50px;
 }
-
 hr.light {
-    border-color: #fff;
+    border-color: white;
 }
 
 a {
@@ -41,14 +39,16 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.navbar,
+.btn{
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
 p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 1.5;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    line-height: 120%;
 }
 
 .bg-primary {
@@ -61,7 +61,7 @@ p {
 }
 
 .text-faded {
-    color: rgba(255,255,255,.7);
+    color: rgba(255, 255, 255, 0.54);
 }
 
 .no-padding {
@@ -78,14 +78,13 @@ p {
         transition: padding 0.3s;
     }
     .navbar-fixed-top .navbar-brand {
-        font-size: 2.5em;
+        font-size: 3em;
         -webkit-transition: all 0.3s;
         -moz-transition: all 0.3s;
         transition: all 0.3s;
     }
 }
 .navbar {
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
 }
@@ -106,6 +105,9 @@ p {
 .nav-button{
     margin-top: 0.7em;
     margin-right: 1em;
+}
+.page-scroll{
+    border-left: 1px solid #dce0e0;
 }
 
 
@@ -139,8 +141,6 @@ header .header-content .header-content-inner hr {
 }
 
 header .header-content .header-content-inner p {
-    margin-bottom: 50px;
-    font-size: 16px;
     font-weight: 300;
     color: rgba(255,255,255,.7);
 }
@@ -162,20 +162,19 @@ header .header-content .header-content-inner p {
     header .header-content .header-content-inner {
         margin-right: auto;
         margin-left: auto;
-        max-width: 1000px;
+        max-width: 80%;
     }
 
     header .header-content .header-content-inner p {
         margin-right: auto;
         margin-left: auto;
-        max-width: 80%;
-        font-size: 18px;
+        max-width: 60%;
     }
 }
 
 .btn-default {
     border-color: #fff;
-    color: #222;
+    color: #f05f40;
     background-color: #fff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
@@ -189,7 +188,7 @@ header .header-content .header-content-inner p {
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
     border-color: #ededed;
-    color: #222;
+    color: #f05f40;
     background-color: #f2f2f2;
 }
 
@@ -246,12 +245,6 @@ fieldset[disabled] .btn-default.active {
     background-color: #ee4b28;
 }
 
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-    background-image: none;
-}
-
 .btn-primary.disabled,
 .btn-primary[disabled],
 fieldset[disabled] .btn-primary,
@@ -283,34 +276,12 @@ fieldset[disabled] .btn-primary.active {
     border: 0;
     border-radius: 300px;
     text-transform: uppercase;
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .btn-xl {
     padding: 15px 30px;
-}
-
-::-moz-selection {
-    text-shadow: none;
-    color: #fff;
-    background: #222;
-}
-
-::selection {
-    text-shadow: none;
-    color: #fff;
-    background: #222;
-}
-
-img::selection {
-    color: #fff;
-    background: 0 0;
-}
-
-img::-moz-selection {
-    color: #fff;
-    background: 0 0;
 }
 
 body {
