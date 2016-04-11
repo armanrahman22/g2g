@@ -10,7 +10,6 @@ body {
   height: 100%;
 }
 
-
 hr {
   border-color: #f05f40;
   border-width: 3px;
@@ -90,9 +89,13 @@ a.btn_red {
 
 .one_half {
   width: 50%;
-  display: block;
-  float: left;
+  height:41px;
+  vertical-align: middle;
+  text-align: center;
+  display: table-cell;
+  padding-left: 20px
 }
+
 
 .one_half.last {
   width: 45%;
@@ -144,19 +147,19 @@ a.btn_red {
   .social_login .icon {
     display: block;
     width: 10px;
-    padding: 5px 10px;
+    padding: 5px 17px 5px 8px;
     margin-right: 10px;
     float: left;
     color: #FFF;
     font-size: 16px;
-    text-align: center;
+    text-align: left;
   }
 
   .social_login .icon_email{
     color:grey;
     display: block;
     width: 10px;
-    padding: 5px 10px;
+    padding: 5px 17px 5px 8px;
     margin-right: 10px;
     float: left;
     font-size: 16px;
