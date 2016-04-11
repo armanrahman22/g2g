@@ -357,7 +357,14 @@ a.btn_red {
   }
 
 
+header .header-content-listings p {
+  color:#f05f40;
+}
 
+header .header-content-listings .btn-default{
+  color: #fff;
+  background-color: #2c3e50;
+}
 
   header {
     position: relative;
@@ -373,6 +380,13 @@ a.btn_red {
     width: 100%;
     padding: 100px 15px;
     text-align: center;
+  }
+
+  header .header-content-listings {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px;
+    /*text-align: center;*/
   }
 
   header .header-content .header-content-inner h1 {
