@@ -68,7 +68,9 @@ p {
     padding: 0;
 }
 
-
+#homepage-input{
+  text-align: center;
+}
 
 @media (min-width: 768px) {
     .navbar-fixed-top {
