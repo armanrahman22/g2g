@@ -10,7 +10,9 @@ body {
   height: 100%;
 }
 
-body {
+body,
+header,
+p {
   font-family: Garamond,'Helvetica Neue',Arial,sans-serif;
 }
 hr {
@@ -38,17 +40,6 @@ a:focus {
 CSS for the sign up modal
 */
 
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 14px;
-  color: #666;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 0;
-  margin-top: 60px;
-}
 
 #lean_overlay {
   position: fixed;
@@ -70,7 +61,7 @@ h1 {
   background: #FFF;
 }
 
-.btn {
+.button {
   padding: 10px 20px;
   background: #F4F4F2;
 }
@@ -80,7 +71,7 @@ h1 {
   color: #FFF;
 }
 
-.btn:hover {
+.button:hover {
   background: #E4E4E2;
 }
 
@@ -88,7 +79,7 @@ h1 {
   background: #C12B05;
 }
 
-a.btn {
+a.button {
   color: #666;
   text-align: center;
   text-decoration: none;
@@ -285,7 +276,8 @@ a.btn_red {
   h5,
   h6,
   .navbar,
-  .btn{
+  .btn ,
+  .button {
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
   }
 
