@@ -53,10 +53,10 @@
                 <a href="#about">About</a>
               </li>
               <li class="page-scroll">
-                <a id="modal_trigger" href="#modal"> Sign Up</a>
+                <a class="modal_trigger" href="#modal"> Sign Up</a>
               </li>
               <li class="page-scroll">
-                <a href="#login">Log In</a>
+                <a class="modal_trigger" href="#modal">Log In</a>
               </li>
             </ul>
           </div>
@@ -77,7 +77,7 @@
             <!-- Social Login -->
             <div class="social_login">
               <div class="">
-                <a href="#" class="social_box fb">
+                <a href="listings.html" class="social_box fb">
                   <span class="icon"><i class="fa fa-facebook"></i></span>
                   <span class="icon_title">Connect with Facebook</span>
                 </a>
@@ -185,7 +185,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-7">
-                    <a href="listings.html" class="btn btn-primary">
+                    <a href="#modal" class="btn btn-primary modal_trigger">
                         Continue
                     </a>
                 </div>
@@ -199,7 +199,7 @@
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
       <script>
       // Plugin options and our code
-      $("#modal_trigger").leanModal({
+      $(".modal_trigger").leanModal({
         top: 100,
         overlay: 0.6,
         closeButton: ".modal_close"
