@@ -41,14 +41,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#page-top">Got<span style="color: orangered">2</span>Go</a>
+          <a class="navbar-brand" href="index.html">Got<span style="color: orangered">2</span>Go</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-button">
-              <button type="submit" class="btn btn-default wow tada" style="visibility: visible;">List Your Restroom</button>
+              <button type="submit" class="btn btn-default" onclick="location.href='add_listing.html'">List Your Restroom</button>
               <li class="page-scroll">
                 <a href="#about">About</a>
               </li>
@@ -121,76 +121,78 @@
         </div>
       </div>
 
-
-      <header style="height:100%">
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1>List Your Restrooms</h1>
-                <br>
-                <p>Got2Go lets you make money by renting out your restrooms.</p>
-            </div>
-
-
-
-            <div class ="col-md-6 col-md-offset-3" style="text-align:left">
-                <form>
-                  <hr align="left" style="width: 25%;max-width: 100%;">
-                  <div style="color:rgba(255,255,255,1); font-weight: bold; font-size: 25px">Information</div>
-
-                  <div style="color:rgba(255,255,255,.7); font-weight: bold; font-size: 19px">Business Type:</div>
-                  <button name="add_restroom" id="restaurant" class="btn btn-default">Restaurant</button>
-                  <button name="add_restroom" id="hotel" class="btn btn-default">Hotel</button>
-                  <button name="add_restroom" id="retail" class="btn btn-default">Retail</button>
-                  <button name="add_restroom" id="other" class="btn btn-default">Other</button>
-                  <br>
-                  <br>
-
-                  <div style="color:rgba(255,255,255,.7); font-weight: bold; font-size: 19px">Business Name:</div>
-                  <input type="text" name="business_name" placeholder="" style="color:#000000; min-width:200px; width:35%">
-                  <br>
-                                    <br>
-                  <div style="color:rgba(255,255,255,.7); font-weight: bold; font-size: 19px">Business Address:</div>
-                  <input type="text" name="business_address" placeholder="" style="color:#000000; min-width:200px; width:35%">
-                  <br>
-                  <br>
-                  <button type="button" class="btn btn-primary" style="display: block">
-<!--                    <span class="glyphicon glyphicon-search"></span>-->
-                  Find on Google
-                  </button>
-                  <!--
-                  <div class="dropdown" style="display:inline-block">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Other<span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <input type="text" name="location_type_other" style="color:#000000"><br>
-                    </ul>
-                  </div>
-                  -->
-                  <br>
-                  <br>
-                  <hr align="left" style="width: 25%;max-width: 100%;">
-                  <div style="color:rgba(255,255,255,1); font-weight: bold; font-size: 25px">Restroom Information</div>
-                  <div style="color:rgba(255,255,255,.7); font-weight: bold; font-size: 20px">Restrooms Supported:
-                  <div style="color:rgba(255,255,255,1); font-size:16px">
-                  <input type="checkbox" name="restroom_type" value="men" >Men
-                  <input type="checkbox" name="restroom_type" value="women" style="margin-left: 25px">Women
-                  <input type="checkbox" name="restroom_type" value="unisex" style="margin-left: 25px">Unisex<br>
+    <section class="titleSection pageHeader bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h1>List Your Restrooms</h1>
+                    <p>Got2Go lets you make money by renting out your restrooms.</p>
                 </div>
-                                  <br>
-
-                  <div style="color:rgba(255,255,255,.7); font-weight: bold; font-size: 19px; display:inline-block">Price: $</div>
-                  <input type="number" name="price" style="color:#000000; display:inline-block; width:10%; min-width:50px" min="0" placeholder='0'>
-
-<!--                  <button name="add restroom" class="btn btn-primary">Add Restroom</button>-->
             </div>
-
-                  <br>
-                  <br>
-                  <button name="continue" class="btn btn-primary">Continue</button>
-                </form>
-            </div>
-
         </div>
-      </header>
+    </section>
+
+    <div class="container">
+
+        <form method="POST" class="form-horizontal" pmbx_context="E740B749-5C64-4736-BFED-03E4AAAB2B25">
+            <div class="page-header">
+                <h3>Information</h3>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Business Type:</label>
+                <div class="col-sm-7">
+                    <button name="add_restroom" id="restaurant" class="btn btn-primary btnblue">Restaurant</button>
+                    <button name="add_restroom" id="hotel" class="btn btn-primary btnblue">Hotel</button>
+                    <button name="add_restroom" id="retail" class="btn btn-primary btnblue">Retail</button>
+                    <button name="add_restroom" id="other" class="btn btn-primary btnblue">Other</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Business Name:</label>
+                <div class="col-sm-7">
+                    <input type="text" name="business_name" id="name" placeholder="Name" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-sm-3 control-label">Business Address:</label>
+                <div class="col-sm-7">
+                    <input type="text" name="business_address" id="address" placeholder="Address" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-7">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-search"></i>Find on Google
+                    </button>
+                </div>
+            </div>
+            <div class="page-header">
+                <h3>Restroom Information</h3>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Restrooms Supported:</label>
+                <div class="col-sm-7">
+                    <input type="checkbox" name="restroom_type" value="men" >Men
+                    <input type="checkbox" name="restroom_type" value="women" style="margin-left: 25px">Women
+                    <input type="checkbox" name="restroom_type" value="unisex" style="margin-left: 25px">Unisex<br>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price" class="col-sm-3 control-label">Business Name:</label>
+                <div class="col-sm-7">
+                    <input type="number" name="business_name" id="price" placeholder="0.00" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-7">
+                    <a href="listings.html" class="btn btn-primary">
+                        Continue
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
 
       <!-- jQuery -->
       <script src="js/jquery.js"></script>
