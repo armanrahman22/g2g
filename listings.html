@@ -47,17 +47,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="nav-button">
-              <button type="submit" class="btn btn-default wow tada" style="visibility: visible;">List Your Restroom</button>
+            
               <li class="page-scroll">
                 <a href="#about">About</a>
               </li>
               <li class="page-scroll">
-                <a id="modal_trigger" href="#modal"> Sign Up</a>
+                <a id="modal_trigger" href="#modal">Logout</a>
               </li>
-              <li class="page-scroll">
-                <a href="#login">Log In</a>
-              </li>
+
             </ul>
           </div>
           <!-- /.navbar-collapse -->
@@ -132,7 +129,7 @@
                   <li class="active"><a href="#">Your Listings<span class="sr-only">(current)</span></a></li>
                   <li><a href="#">Your Reservations</a></li>
                   <br>
-                  <li><button class="btn btn-default" type="button">Add New Listing</button></li>
+                  <li><button class="btn btn-default" type="button" id="add-listing">Add New Listing</button></li>
                 </ul>
               </div>
 
@@ -192,6 +189,10 @@
       });
 
       $(function() {
+
+        $('#add-listing').click(function(){
+          document.location = 'add_listing.html'
+        })
         // Calling Login Form
         $("#login_form").click(function() {
           $(".social_login").hide();
