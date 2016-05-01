@@ -53,6 +53,12 @@ p {
     line-height: 120%;
 }
 
+.vertical-center-row {
+    padding-bottom: 2%;
+    display: flex;
+    align-items: center;
+}
+
 .bg-primary {
     background-color: #f05f40;
 }
@@ -124,15 +130,15 @@ aside {
 
 .panel-body {
     background:#2c3e50;
-    color: #18bc9c;
+    color: #ed431f;
     border-radius: 10px;
-    border-color: #18bc9c;
+    border-color: #ed431f;
     text-align: left;
 }
 
 .panel-default {
-    border-color: #18bc9c;
-    background-color: #18bc9c;
+    border-color:#f05f40;
+    background-color: #f05f40;
 }
 
 header .header-content-listings p {
@@ -161,13 +167,14 @@ header {
     position: relative;
     width: 100%;
     min-height: auto;
-    text-align: center;
-    color: #fff;
-    background: #18bc9c;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bathroom.jpg);
+    text-align: center;
+    color: white;
 }
 
 header .header-content {
@@ -192,7 +199,7 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
     font-size: 1.5em;
     font-weight: 700;
-    color: rgba(255,255,255,.7);
+    color:lemonchiffon;
 }
 
 @media(min-width:768px) {
@@ -318,6 +325,10 @@ header .header-content .header-content-inner p {
     padding-left: 0;
 }
 
+.search-btn{
+    padding: 12px 15px !important;
+}
+
 .btn-default {
     border-color: #fff;
     color: #222;
@@ -333,9 +344,9 @@ header .header-content .header-content-inner p {
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-    border-color: #ededed;
+    border-color: #c6c6c6;
     color: #222;
-    background-color: #f2f2f2;
+    background-color: #c6c6c6;
 }
 
 .btn-default:active,
@@ -372,9 +383,9 @@ fieldset[disabled] .btn-default.active {
 }
 
 .btn-primary {
-    border-color: #f05f40;
+    border-color: #2c3e50;
     color: #fff;
-    background-color: #f05f40;
+    background-color: #2c3e50;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -430,10 +441,13 @@ fieldset[disabled] .btn-primary.active {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
+    margin-right: 2em;
 }
 
 .btn-xl {
     padding: 15px 30px;
+    background-color: #ed431f ;
+
 }
 
 ::-moz-selection {
@@ -476,7 +490,9 @@ body {
 .btnblue{
     background-color: #2c3e50 !important;
 }
-
+#listings{
+    background: #f05f40 !important;
+}
 
 
 
@@ -730,4 +746,97 @@ a.btn_red {
     margin-bottom: 10px;
     clear: both;
     overflow: hidden;
+}
+
+
+/* Button Tadio CSS*/
+.hide_radio input[type=radio] {
+    display:none;
+    margin:10px;
+}
+
+.hide_radio input[type=radio]:checked + label {
+    background-image: none;
+    background-color:#f05f40 !important;
+}
+
+
+/* RADIO BUTTON CSS */
+
+label.btn span {
+    font-size: 1.5em ;
+}
+
+label input[type="radio"] ~ i.fa.fa-circle-o{
+    color: #2c3e50;    display: inline;
+}
+label input[type="radio"] ~ i.fa.fa-check-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-check-circle-o{
+    color: #f05f40;    display: inline;
+}
+label:hover input[type="radio"] ~ i.fa {
+    color: #f05f40;
+}
+
+label input[type="checkbox"] ~ i.fa.fa-square-o{
+    color: #2c3e50;    display: inline;
+}
+label input[type="checkbox"] ~ i.fa.fa-check-square-o{
+    display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-square-o{
+    display: none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
+    color: #f05f40;    display: inline;
+}
+label:hover input[type="checkbox"] ~ i.fa {
+    color: #f05f40;
+}
+
+div[data-toggle="buttons"] label.active{
+    color: #f05f40;
+}
+
+div[data-toggle="buttons"] label {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 2em;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: top;
+    cursor: pointer;
+    background-color: none;
+    border: 0px solid #c8c8c8;
+    border-radius: 3px;
+    color: #2c3e50;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+div[data-toggle="buttons"] label:hover {
+    color: #f05f40;
+}
+
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+/*FEEDBACK*/
+#listingForm .selectContainer .form-control-feedback,
+#listingForm .inputGroupContainer .form-control-feedback {
+    right: -15px;
 }
