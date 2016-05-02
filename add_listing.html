@@ -51,7 +51,7 @@
           <li class="nav-button">
             <button type="submit" class="btn btn-default" onclick="location.href='add_listing.html'">List Your Restroom</button>
             <li class="page-scroll">
-              <a href="#about">About</a>
+                <a href="listings.html">View Listings</a>
             </li>
             <li class="page-scroll">
               <a class="modal_trigger" href="#modal">Sign Up</a>
@@ -145,13 +145,13 @@
       <div class="form-group ">
         <label class="col-sm-3 control-label">Business Type*:</label>
         <div class="col-sm-9 hide_radio ">
-          <input type="radio" id="type-restaurant" name="business-type" value="restaurant" >
+          <input type="radio" id="type-restaurant" name="business-type" value="Restaurant">
             <label for="type-restaurant" class="btn btn-primary col-sm-2">Restaurant</label>
-          <input type="radio" id="type-hotel" name="business-type" value="hotel">
+          <input type="radio" id="type-hotel" name="business-type" value="Hotel">
             <label for="type-hotel" class="btn btn-primary col-sm-2">Hotel</label>
-          <input type="radio" id="type-retail" name="business-type" value="retail">
+          <input type="radio" id="type-retail" name="business-type" value="Retail">
             <label for="type-retail" class="btn btn-primary col-sm-2">Retail</label>
-          <input type="radio" id="type-other" name="business-type" value="other">
+          <input type="radio" id="type-other" name="business-type" value="Other">
             <label for="type-other" class="btn btn-primary col-sm-2">Other</label>
         </div>
       </div>
@@ -468,17 +468,17 @@
       
       <!-- Restrooms Supported -->
       <div class="form-group">
-        <label class="col-sm-3 control-label">Restrooms Supported:</label>
+        <label class="col-sm-3 control-label">Restroom Type*:</label>
         <div class="col-sm-9">
           <div class="btn-group" data-toggle="buttons">
             <label class="btn">
-              <input type="radio" name='restroom-type' value="unisex"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>Unisex</span>
+              <input type="radio" name='restroom-type' value="Unisex"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x" required></i><span>Unisex</span>
             </label>
             <label class="btn">
-              <input type="radio" name='restroom-type' value="women"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>Female</span>
+              <input type="radio" name='restroom-type' value="Women"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>Female</span>
             </label>
             <label class="btn">
-              <input type="radio" name='restroom-type' value="men"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>Male</span>
+              <input type="radio" name='restroom-type' value="Men"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>Male</span>
             </label>
           </div>
         </div>
@@ -486,22 +486,22 @@
       
       <!-- Price -->
       <div class="form-group">
-        <label for="restroom-price" class="col-sm-3 control-label">Price:</label>
+        <label for="restroom-price" class="col-sm-3 control-label" >Price*:</label>
         <div class="col-sm-7 input-group">
           <span class="input-group-addon">$</span>
-          <input type="number" name="restroom-price" id="restroom-price" step=".01"  min="0" placeholder="0.00" class="form-control" >
+          <input type="number" name="restroom-price" id="restroom-price" placeholder="0.00" pattern="[0-9]*" class="form-control" required>
         </div>
       </div>
   
       <!-- Number of Restrooms -->
       <div class="form-group">
-        <label for="restroom-quantity" class="col-sm-3 control-label">Number of Restrooms:</label>
+        <label for="restroom-quantity" class="col-sm-3 control-label">Number of Restrooms*:</label>
         <div class="col-sm-7">
           <div class="input-group number-spinner">
             <span class="input-group-btn">
               <button type="button" class="btn btn-primary" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
             </span>
-            <input id="restroom-quantity" type="text" class="form-control text-center" value="1">
+            <input id="restroom-quantity" type="text" class="form-control text-center" value="1" required>
             <span class="input-group-btn">
               <button type="button" class="btn btn-primary" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
             </span>
@@ -623,6 +623,24 @@ function getRadioVal(form, name) {
       return false;
     });
   });
+  </script>
+  <script>
+  document.getElementById("restroom-price").onblur =function (){    
+
+    //number-format the user input
+    this.value = parseFloat(this.value.replace(/,/g, ""))
+                    .toFixed(2)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    if (this.value < 0) {
+      this.value = 0;
+    }
+
+    //set the numeric value to a number input
+    document.getElementById("restroom-price").value = this.value.replace(/,/g, "")
+
+  }
   </script>
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
