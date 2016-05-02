@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +28,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="init();">
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -140,13 +139,12 @@
                         <img src="Qmart_map.png" style="width:304px;height:228px;">
                       </div>
                       <div class="col-md-6 col-md-offset-3">
-                        <p>Quality Mart</p>
-                        <p>21 Massachusetts Avenue</p>
-                        <p>Boston, MA 02215</p>
+                        <p id="business-name">Quality Mart</p>
+                        <p id="address-line-1">21 Massachusetts Avenue</p>
+                        <p id="address-line-2">21 Massachusetts Avenue</p>
+                        <p><span id="address-city">Boston</span>, <span id="address-region">MA</span> <span id="address-postal-code">02215</span>, <span id="address-country">US</span></p>
                         <br>
-
                         <a href="analytics.html"><button class="btn btn-default" id="analButton" type="button">View Analytics</button></a>
-
                       </div>
                     </div>
 
@@ -176,6 +174,20 @@
       <!-- jQuery -->
       <script src="js/jquery.js"></script>
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+      <script>
+        function init() {
+          if (localStorage.getItem("businessName")){
+          document.getElementById("business-name").innerHTML= localStorage.getItem("businessName");
+          }
+        document.getElementById("address-line-1").textContent = localStorage.getItem("addressLine1");
+          document.getElementById("address-line-2").textContent = localStorage.getItem("addressLine2");
+          document.getElementById("address-city").textContent = localStorage.getItem("addressCity");
+          document.getElementById("address-region").textContent = localStorage.getItem("addressRegion");
+          document.getElementById("address-postal-code").textContent = localStorage.getItem("addressPostalCode");
+          document.getElementById("address-country").textContent = localStorage.getItem("addressCountry");
+          
+        }
+      </script>
       <script>
       // Plugin options and our code
       $("#modal_trigger").leanModal({
@@ -213,9 +225,6 @@
       </script>
       <!-- Bootstrap Core JavaScript -->
       <script src="js/bootstrap.min.js"></script>
-
-
-
     </body>
 
     </html>
