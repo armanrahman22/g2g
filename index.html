@@ -77,7 +77,7 @@
           <section class="popupBody">
             <!-- Social Login -->
             <div class="social_login">
-              <div class="">
+              <!--<div class="">
                 <a href="add_listing.html" class="social_box fb">
                   <span class="icon"><i class="fa fa-facebook"></i></span>
                   <span class="icon_title">Connect with Facebook</span>
@@ -91,6 +91,60 @@
                   <span class="icon_title">Sign up with email</span>
                 </a>
               </div>
+            -->
+              <div class = "">
+                <form class="form-horizontal">
+                    <div class="form-group required">
+                      <label class="col-md-5 control-label">First name</label>
+                      <div class="col-md-7">
+                        <input class="form-control" id="id_first_name" maxlength="30" name="first_name" placeholder="First name" required="required" title="" type="text" />
+                      </div>
+                    </div>
+
+                    <div class="form-group required">
+                      <label class="col-md-5 control-label">Last name</label>
+                      <div class="col-md-7">
+                        <input class="form-control" id="id_last_name" maxlength="30" name="last_name" placeholder="Last name" required="required" title="" type="text" />
+                      </div>
+                    </div>
+
+                    <div class="form-group required">
+                      <label class="col-md-5 control-label">E-mail</label>
+                      <div class="col-md-7"><input class="form-control" id="id_email" name="email" placeholder="E-mail" required="required" title="" type="email" />
+                      </div>
+                    </div>
+
+                    <div class="form-group required">
+                      <label class="col-md-5 control-label">Password</label>
+                      <div class="col-md-7"><input class="form-control" id="id_password1" name="password1" placeholder="Password" required="required" title="" type="password" />
+                      </div>
+                    </div>
+
+                    <div class="form-group required">
+                      <label class="col-md-5 control-label">Password (again)</label>
+                      <div class="col-md-7">
+                        <input class="form-control" id="id_password2" name="password2" placeholder="Password (again)" required="required" title="" type="password" />
+                      </div>
+                    </div>
+
+                    <div class="form-group required">
+                      <label>&#160;</label>
+                      <div >
+                        <div class="checkbox">
+                          <label><input class="" id="id_tos" name="tos" required="required" type="checkbox" /> I have read and agree to the Terms of Service</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                           <button type="submit" class="btn btn-primary" id="signup_form">
+                              <span class="glyphicon glyphicon-star"></span> Sign Me Up!
+                           </button>
+                        </div>
+                    </div>
+                </form>
+              </div>
               <div class="action_btns">
                 <div class="one_half"><span class='memberSpan'>Already a member?</span></div>
                 <div class="one_half last"><a href="#" id="login_form" class="button">Log in</a></div>
@@ -100,8 +154,8 @@
             <!-- Username & Password Login form -->
             <div class="user_login">
               <form>
-                <label>Email / Username</label>
-                <input type="text" />
+                <label>Email</label>
+                <input id='login_email' type="text" />
                 <br />
                 <label>Password</label>
                 <input type="password" />
@@ -215,6 +269,25 @@
           $(".social_login").hide();
           $(".user_login").show();
           return false;
+        });
+
+        $("#signup_form").click(function() {
+          var password = $("#id_password1").val();
+          var passwordConfirm = $("#id_password2").val();
+          if(password!=passwordConfirm){
+            $("#id_password1").val('');
+            $("#id_password2").val('');
+            alert("Passwords do not match");
+            return false;
+          }
+          else{
+            var email = $("#id_email").val();
+            console.log(email);
+            $('#login_email').val(email);
+            $(".social_login").hide();
+            $(".user_login").show();
+            return false;
+          }
         });
 
         // Calling Register Form
