@@ -461,11 +461,11 @@
           <!--</button>-->
         <!--</div>-->
       <!--</div>-->
-      
+
       <div class="page-header">
         <h3>Restroom Information</h3>
       </div>
-      
+
       <!-- Restrooms Supported -->
       <div class="form-group">
         <label class="col-sm-3 control-label">Restroom Type*:</label>
@@ -483,7 +483,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Price -->
       <div class="form-group">
         <label for="restroom-price" class="col-sm-3 control-label" >Price*:</label>
@@ -492,7 +492,7 @@
           <input type="number" name="restroom-price" id="restroom-price" placeholder="0.00" pattern="[0-9]*" class="form-control" required>
         </div>
       </div>
-  
+
       <!-- Number of Restrooms -->
       <div class="form-group">
         <label for="restroom-quantity" class="col-sm-3 control-label">Number of Restrooms*:</label>
@@ -526,7 +526,7 @@ function getRadioVal(form, name) {
     var val;
     // get list of radio buttons with specified name
     var radios = form.elements[name];
-    
+
     // loop through list of radio buttons
     for (var i=0, len=radios.length; i<len; i++) {
         if ( radios[i].checked ) { // radio checked?
@@ -552,9 +552,31 @@ function getRadioVal(form, name) {
         var form_restroomPrice = document.getElementById("restroom-price").value;
         var form_restroomQuantity = document.getElementById("restroom-quantity").value;
 
+        var businessInfo = { "businessName": form_businessName,
+            "businessType": form_businessType,
+            "addressLine1": form_addressLine1,
+            "addressLine2": form_addressLine2,
+            "addressCity": form_city,
+            "addressRegion": form_region,
+            "addressPostalCode": form_postalCode,
+            "addressCountry": form_country,
+            "restroomType": form_restroomType,
+            "restroomPrice": form_restroomPrice,
+            "restroomQuantity": form_restroomQuantity }
+
+
       // Getting the value of your text input
       if(typeof(Storage) !== "undefined") {
         // Code for localStorage/sessionStorage.
+
+        var savedData = JSON.parse(localStorage.getItem("savedData"));
+        if (savedData == null){
+          savedData = {};
+        }
+        savedData[form_businessName] = businessInfo;
+        localStorage.setItem("savedData", JSON.stringify(savedData));
+
+
         localStorage.setItem("businessName", form_businessName);
         localStorage.setItem("businessType", form_businessType);
         localStorage.setItem("addressLine1", form_addressLine1);
@@ -625,7 +647,7 @@ function getRadioVal(form, name) {
   });
   </script>
   <script>
-  document.getElementById("restroom-price").onblur =function (){    
+  document.getElementById("restroom-price").onblur =function (){
 
     //number-format the user input
     this.value = parseFloat(this.value.replace(/,/g, ""))

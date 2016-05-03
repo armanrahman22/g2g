@@ -132,8 +132,8 @@
                 </ul>
               </div>
 
-                <div class="panel panel-default">
-                  <div class="panel-body col-md-8 col-md-offset-1">
+                <div class="panel panel-default" id="listings-panel">
+                  <!-- <div class="panel-body col-md-8 col-md-offset-1">
                     <div class="row">
                       <div class="col-md-3">
                         <img src="Qmart_map.png" style="width:304px;height:228px;">
@@ -161,9 +161,9 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
-            
+
             </div>
 
         </div>
@@ -190,17 +190,64 @@
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
       <script>
         function init() {
-          document.getElementById("business-name").textContent = localStorage.getItem("businessName");
-          document.getElementById("business-type").textContent = localStorage.getItem("businessType");
-          document.getElementById("address-line-1").textContent = localStorage.getItem("addressLine1");
-          document.getElementById("address-line-2").textContent = localStorage.getItem("addressLine2");
-          document.getElementById("address-city").textContent = localStorage.getItem("addressCity");
-          document.getElementById("address-region").textContent = localStorage.getItem("addressRegion");
-          document.getElementById("address-postal-code").textContent = localStorage.getItem("addressPostalCode");
-          document.getElementById("address-country").textContent = localStorage.getItem("addressCountry");
-          document.getElementById("restroom-type").textContent = localStorage.getItem("restroomType");
-          document.getElementById("restroom-price").textContent = localStorage.getItem("restroomPrice");
-          document.getElementById("restroom-quantity").textContent = localStorage.getItem("restroomQuantity");          
+
+          // document.getElementById("business-name").textContent = localStorage.getItem("businessName");
+          // document.getElementById("business-type").textContent = localStorage.getItem("businessType");
+          // document.getElementById("address-line-1").textContent = localStorage.getItem("addressLine1");
+          // document.getElementById("address-line-2").textContent = localStorage.getItem("addressLine2");
+          // document.getElementById("address-city").textContent = localStorage.getItem("addressCity");
+          // document.getElementById("address-region").textContent = localStorage.getItem("addressRegion");
+          // document.getElementById("address-postal-code").textContent = localStorage.getItem("addressPostalCode");
+          // document.getElementById("address-country").textContent = localStorage.getItem("addressCountry");
+          // document.getElementById("restroom-type").textContent = localStorage.getItem("restroomType");
+          // document.getElementById("restroom-price").textContent = localStorage.getItem("restroomPrice");
+          // document.getElementById("restroom-quantity").textContent = localStorage.getItem("restroomQuantity");
+
+          var savedData = JSON.parse(localStorage.getItem("savedData"));
+
+          var html ='';
+          var listing_count = 0;
+          var offset = 0;
+          for (var listing in savedData){
+            if (listing_count != 0){
+              offset = 2;
+            }
+            html += '<div class="panel-body col-md-8 col-md-offset-'+offset+'">' +
+                                '<div class="row">'+
+                                  '<div class="col-md-3">'+
+                                    '<img src="Qmart_map.png" style="width:304px;height:228px;">'+
+                                '  </div>'+
+                                  '<div class="col-md-3 col-md-offset-2">'+
+                                    '<p id="business-name" style="font-weight:bold">'+ savedData[listing].businessName + '</p>'+
+                                    '<div style="margin-left:5px">'+
+                                      '<div style="color:#FFFFFF">Business Type: <span id="business-type">'+savedData[listing].businessType+' </span></div>'+
+                                      '<br>'+
+                                      '<div id="address-line-1" style="color:#FFFFFF">'+savedData[listing].addressLine1+'</div>'+
+                                    '  <div id="address-line-2" style="color:#FFFFFF">'+savedData[listing].addressLine2+'</div>'+
+                                      '<div style="color:#FFFFFF"><span id="address-city">'+savedData[listing].addressCity+'</span>, <span id="address-region">'+savedData[listing].addressRegion+'</span> <span id="address-postal-code">'+savedData[listing].addressPostalCode+'</span>, <span id="address-country">'+savedData[listing].addressCountry+'</span></div>'+
+                                    '</div>'+
+                                    '<br>'+
+                                    '<a href="analytics.html">'+
+                                      '<button class="btn btn-default" id="analButton" type="button">View Analytics</button>'+
+                                    '</a>'+
+                                  '</div>'+
+                                  '<div class="col-md-3">'+
+                                    '<p id="restroom-info" style="font-weight:bold">Restroom Info</p>'+
+                                    '<div style="margin-left:5px">'+
+                                      '<div style="color:#FFFFFF">Restroom Type: <span id="restroom-type">'+savedData[listing].restroomType+'</span></div>'+
+                                      '<div style="color:#FFFFFF">Price: <span id="restroom-price">'+savedData[listing].restroomPrice+'</span></div>'+
+                                      '<div style="color:#FFFFFF"># of Restrooms: <span id="restroom-quantity">'+savedData[listing].restroomQuantity+'</span ></div>'+
+                                    '</div>'+
+                                  '</div>'+
+                                  '<div class="col-md-1">'+
+                                    '<a class="close-btn" href="#"><span class="glyphicon glyphicon-remove"></span></a>'+
+                                  '</div>'+
+                                '</div>'+
+                              '</div>'
+                  listing_count +=1;
+          }
+
+                   document.getElementById('listings-panel').innerHTML = html;
         }
       </script>
       <script>
