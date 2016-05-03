@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +28,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" onload="init();">
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -49,7 +48,7 @@
           <ul class="nav navbar-nav navbar-right">
 
               <li class="page-scroll">
-                <a href="#about">About</a>
+                <a href="listings.html">View Listings</a>
               </li>
               <li class="page-scroll">
                 <a id="modal_trigger" href="#modal">Logout</a>
@@ -126,10 +125,10 @@
             <div class="row">
               <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
-                  <li class="active"><a href="#">Your Listings<span class="sr-only">(current)</span></a></li>
-                  <li><a href="#">Your Reservations</a></li>
+<!--                  <li class="active"><a href="#">Your Listings<span class="sr-only">(current)</span></a></li>-->
+<!--                  <li><a href="#">Your Reservations</a></li>-->
                   <br>
-                  <li><button class="btn btn-default" type="button" onclick="location.href='add_listing.html'">Add New Listing</button></li>
+                  <li><button class="btn btn-default col-md-offset-1" type="button" onclick="location.href='add_listing.html'">Add New Listing</button></li>
                 </ul>
               </div>
 
@@ -139,19 +138,32 @@
                       <div class="col-md-3">
                         <img src="Qmart_map.png" style="width:304px;height:228px;">
                       </div>
-                      <div class="col-md-6 col-md-offset-3">
-                        <p>Quality Mart</p>
-                        <p>21 Massachusetts Avenue</p>
-                        <p>Boston, MA 02215</p>
+                      <div class="col-md-3 col-md-offset-2">
+                        <p id="business-name" style="font-weight:bold"></p>
+                        <div style="margin-left:5px">
+                          <div style="color:#FFFFFF">Business Type: <span id="business-type"></span></div>
+                          <br>
+                          <div id="address-line-1" style="color:#FFFFFF"></div>
+                          <div id="address-line-2" style="color:#FFFFFF"></div>
+                          <div style="color:#FFFFFF"><span id="address-city"></span>, <span id="address-region"></span> <span id="address-postal-code"></span>, <span id="address-country"></span></div>
+                        </div>
                         <br>
-
-                        <a href="analytics.html"><button class="btn btn-default" id="analButton" type="button">View Analytics</button></a>
-
+                        <a href="analytics.html">
+                          <button class="btn btn-default" id="analButton" type="button">View Analytics</button>
+                        </a>
+                      </div>
+                      <div class="col-md-3">
+                        <p id="restroom-info" style="font-weight:bold">Restroom Info</p>
+                        <div style="margin-left:5px">
+                          <div style="color:#FFFFFF">Restroom Type: <span id="restroom-type"></span></div>
+                          <div style="color:#FFFFFF">Price: <span id="restroom-price"></span></div>
+                          <div style="color:#FFFFFF"># of Restrooms: <span id="restroom-quantity"></spa ></div>
+                        </div>
                       </div>
                     </div>
-
+                  </div>
                 </div>
-              </div>
+            
             </div>
 
         </div>
@@ -176,6 +188,21 @@
       <!-- jQuery -->
       <script src="js/jquery.js"></script>
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+      <script>
+        function init() {
+          document.getElementById("business-name").textContent = localStorage.getItem("businessName");
+          document.getElementById("business-type").textContent = localStorage.getItem("businessType");
+          document.getElementById("address-line-1").textContent = localStorage.getItem("addressLine1");
+          document.getElementById("address-line-2").textContent = localStorage.getItem("addressLine2");
+          document.getElementById("address-city").textContent = localStorage.getItem("addressCity");
+          document.getElementById("address-region").textContent = localStorage.getItem("addressRegion");
+          document.getElementById("address-postal-code").textContent = localStorage.getItem("addressPostalCode");
+          document.getElementById("address-country").textContent = localStorage.getItem("addressCountry");
+          document.getElementById("restroom-type").textContent = localStorage.getItem("restroomType");
+          document.getElementById("restroom-price").textContent = localStorage.getItem("restroomPrice");
+          document.getElementById("restroom-quantity").textContent = localStorage.getItem("restroomQuantity");          
+        }
+      </script>
       <script>
       // Plugin options and our code
       $("#modal_trigger").leanModal({
@@ -213,9 +240,6 @@
       </script>
       <!-- Bootstrap Core JavaScript -->
       <script src="js/bootstrap.min.js"></script>
-
-
-
     </body>
 
     </html>
