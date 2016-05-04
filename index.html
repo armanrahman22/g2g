@@ -341,15 +341,17 @@
           var true_password = localStorage.getItem("password");
 
           if(login_email==true_email && login_password==true_password){
-              console.log("redirecting..")
               if(typeof(Storage) !== "undefined") {
                 // Code for localStorage/sessionStorage.
                 localStorage.setItem("logged_in", true);
+                $(".social_login").show();
+                $(".user_login").hide();
+                window.location.href = "../g2g/listings.html";
               } else {
                 // Sorry! No Web Storage support..
                 console.log("Sorry! No Web Storage support..");
               }
-              window.location.href = "../g2g/listings.html";
+
               return false
           }
           else{
@@ -367,6 +369,15 @@
           $(".header_title").text('Register');
           return false;
         });
+
+        $(".modal_close").click(function() {
+          $(".modal_back").hide();
+          $(".user_login").hide();
+          $(".social_login").show();
+          $(".header_title").text('Register');
+        });
+
+
 
         // Storing user information
         function tosubmit() {
