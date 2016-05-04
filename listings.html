@@ -238,6 +238,10 @@
                                       '<div style="color:#FFFFFF">Price: <span id="restroom-price">'+savedData[listing].restroomPrice+'</span></div>'+
                                       '<div style="color:#FFFFFF"># of Restrooms: <span id="restroom-quantity">'+savedData[listing].restroomQuantity+'</span ></div>'+
                                     '</div>'+
+                                    '<br><br>'+
+                                    '<a href="edit_listing.html">'+
+                                      '<button class="btn btn-default" id="editButton" data-listing='+listing+ ' type="button">Edit Listing</button>'+
+                                    '</a>'+
                                   '</div>'+
                                   '<div class="col-md-1">'+
                                     '<a class="close-btn" href="#" id='+listing+'><span class="glyphicon glyphicon-remove"></span></a>'+
@@ -248,6 +252,11 @@
           }
 
                    document.getElementById('listings-panel').innerHTML = html;
+
+                   $('#editButton').click(function(){
+                     localStorage.setItem("editing", this.getAttribute('data-listing'));
+                     debugger;
+                   });
 
 
                    $(".close-btn").click(function() {
