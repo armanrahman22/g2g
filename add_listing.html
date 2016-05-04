@@ -489,7 +489,7 @@
         <label for="restroom-price" class="col-sm-3 control-label" >Price*:</label>
         <div class="col-sm-7 input-group">
           <span class="input-group-addon">$</span>
-          <input type="number" name="restroom-price" id="restroom-price" placeholder="0.00" pattern="[0-9]*" class="form-control" required>
+          <input type="number" name="restroom-price" min="0" id="restroom-price" placeholder="0.00" pattern="[0-9]*" class="form-control" required>
         </div>
       </div>
 
@@ -501,7 +501,7 @@
             <span class="input-group-btn">
               <button type="button" class="btn btn-primary" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></button>
             </span>
-            <input id="restroom-quantity" type="text" class="form-control text-center" value="1" required>
+            <input id="restroom-quantity" type="text" min="1" class="form-control text-center" value="1" required>
             <span class="input-group-btn">
               <button type="button" class="btn btn-primary" data-dir="up"><span class="glyphicon glyphicon-plus"></span></button>
             </span>

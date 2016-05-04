@@ -254,7 +254,10 @@
 
                        debugger;
                        var oldHtml = this.parentElement.parentElement.parentElement.innerHTML;
-                       var newHtml = "Are you sure you want to delete this listing? <br> <button id='yes-button' class='btn btn-default'>Yes</button><button id='no-button' class='btn btn-default'>No</button>"
+                       var newHtml = "<div id='delete-listing'> <p> Delete this Lisitng</p>"+
+                       "<h5 style='color:#FFFFFF'>Are you sure you want to delete this listing? You cannot reverse this action.</h5>" +
+                        "<br><br> <button id='yes-button' class='btn btn-default'>Yes</button><button id='no-button' class='btn btn-default'>No</button>" +
+                        "</div>"
                        var panel = this.id
                        document.getElementById(panel+'_panel').innerHTML = newHtml
 

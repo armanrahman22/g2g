@@ -175,6 +175,10 @@ header .header-content-listings {
   display: none;
 }
 
+#delete-listing{
+  text-align: center;
+}
+
 .panel-body:hover .close-btn{
   display: block;
 }
