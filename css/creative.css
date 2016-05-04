@@ -506,6 +506,9 @@ body {
   text-align: center;
 }
 
+.action_btns{
+  text-align: center;
+}
 
 
 
@@ -594,7 +597,7 @@ a.btn_red {
     font-weight: bold;
 }
 
-.popupHeader .modal_close {
+.popupHeader .modal_close{
     position: absolute;
     right: 0;
     top: 0;
@@ -603,6 +606,18 @@ a.btn_red {
     cursor: pointer;
     color: #aaa;
     font-size: 16px;
+}
+
+.modal_back{
+  left:0;
+  top:0;
+  position:absolute;
+  background: #E4E4E2;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 16px;
+
 }
 
 .popupBody {

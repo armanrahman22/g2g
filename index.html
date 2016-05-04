@@ -70,6 +70,7 @@
       <div class="signupContainer">
         <div id="modal" class="popupContainer" style="display:none;">
           <header class="popupHeader">
+            <span class="modal_back" style="display:none;"><i class="fa fa-arrow-left"></i></span>
             <span class="header_title">Sign up</span>
             <span class="modal_close"><i class="fa fa-times"></i></span>
           </header>
@@ -77,72 +78,55 @@
           <section class="popupBody">
             <!-- Social Login -->
             <div class="social_login">
-              <!--<div class="">
-                <a href="add_listing.html" class="social_box fb">
-                  <span class="icon"><i class="fa fa-facebook"></i></span>
-                  <span class="icon_title">Connect with Facebook</span>
-                </a>
-                <a href="#" class="social_box google">
-                  <span class="icon"><i class="fa fa-google-plus"></i></span>
-                  <span class="icon_title">Connect with Google</span>
-                </a>
-                <a href="#" class="social_box email">
-                  <span class="icon_email"><i class="fa fa-envelope"></i></span>
-                  <span class="icon_title">Sign up with email</span>
-                </a>
-              </div>
-            -->
               <div class = "">
                 <form class="form-horizontal">
-                    <div class="form-group required">
-                      <label class="col-md-5 control-label">First name</label>
-                      <div class="col-md-7">
-                        <input class="form-control" id="id_first_name" maxlength="30" name="first_name" placeholder="First name" required="required" title="" type="text" />
+                  <div class="form-group required">
+                    <label class="col-md-5 control-label">First name</label>
+                    <div class="col-md-7">
+                      <input class="form-control" id="id_first_name" maxlength="30" name="first_name" placeholder="First name" required title="" type="text" />
+                    </div>
+                  </div>
+
+                  <div class="form-group required">
+                    <label class="col-md-5 control-label">Last name</label>
+                    <div class="col-md-7">
+                      <input class="form-control" id="id_last_name" maxlength="30" name="last_name" placeholder="Last name" required title="" type="text" />
+                    </div>
+                  </div>
+
+                  <div class="form-group required">
+                    <label class="col-md-5 control-label">E-mail</label>
+                    <div class="col-md-7"><input class="form-control" id="id_email" name="email" placeholder="E-mail" required title="" type="email" />
+                    </div>
+                  </div>
+
+                  <div class="form-group required">
+                    <label class="col-md-5 control-label">Password</label>
+                    <div class="col-md-7"><input class="form-control" id="id_password1" name="password1" placeholder="Password" required title="" type="password" />
+                    </div>
+                  </div>
+
+                  <div class="form-group required">
+                    <label class="col-md-5 control-label">Password (again)</label>
+                    <div class="col-md-7">
+                      <input class="form-control" id="id_password2" name="password2" placeholder="Password (again)" required title="" type="password" />
+                    </div>
+                  </div>
+
+                  <div class="form-group required">
+                    <label>&#160;</label>
+                    <div >
+                      <div class="checkbox">
+                        <label><input class="" id="id_tos" name="tos" required type="checkbox" /> I have read and agree to the Terms of Service</label>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="form-group required">
-                      <label class="col-md-5 control-label">Last name</label>
-                      <div class="col-md-7">
-                        <input class="form-control" id="id_last_name" maxlength="30" name="last_name" placeholder="Last name" required="required" title="" type="text" />
-                      </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <input type="submit" class="btn btn-success" id="signup_form"/> 
                     </div>
-
-                    <div class="form-group required">
-                      <label class="col-md-5 control-label">E-mail</label>
-                      <div class="col-md-7"><input class="form-control" id="id_email" name="email" placeholder="E-mail" required="required" title="" type="email" />
-                      </div>
-                    </div>
-
-                    <div class="form-group required">
-                      <label class="col-md-5 control-label">Password</label>
-                      <div class="col-md-7"><input class="form-control" id="id_password1" name="password1" placeholder="Password" required="required" title="" type="password" />
-                      </div>
-                    </div>
-
-                    <div class="form-group required">
-                      <label class="col-md-5 control-label">Password (again)</label>
-                      <div class="col-md-7">
-                        <input class="form-control" id="id_password2" name="password2" placeholder="Password (again)" required="required" title="" type="password" />
-                      </div>
-                    </div>
-
-                    <div class="form-group required">
-                      <label>&#160;</label>
-                      <div >
-                        <div class="checkbox">
-                          <label><input class="" id="id_tos" name="tos" required="required" type="checkbox" /> I have read and agree to the Terms of Service</label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                           <button type="submit" class="btn btn-primary" id="signup_form">
-                              <span class="glyphicon glyphicon-star"></span> Sign Me Up!
-                           </button>
-                        </div>
-                    </div>
+                  </div>
                 </form>
               </div>
               <div class="action_btns">
@@ -153,28 +137,31 @@
 
             <!-- Username & Password Login form -->
             <div class="user_login">
-              <form>
-                <label>Email</label>
-                <input id='login_email' type="text" />
-                <br />
-                <label>Password</label>
-                <input type="password" />
-                <br />
-                <div class="checkbox">
-                  <input id="remember" type="checkbox" />
-                  <label for="remember">Remember me on this computer</label>
+              <form class='form-horizontal'>
+                <div class="form-group required">
+                  <label class="col-md-5 control-label">E-mail</label>
+                  <div class="col-md-7"><input class="form-control" id="login_email" name="email" placeholder="E-mail" required="required" title="" type="email" />
+                  </div>
                 </div>
-                <div class="action_btns">
-                  <div class="one_half"><a href="#" class="button back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                  <div class="one_half last"><a href="#" class="button btn_red">Login</a></div>
+
+                <div class="form-group required">
+                  <label class="col-md-5 control-label">Password</label>
+                  <div class="col-md-7"><input class="form-control" id="login_password" name="password1" placeholder="Password" required="required" title="" type="password" />
+                  </div>
                 </div>
               </form>
 
-              <a href="#" class="forgot_password">Forgot password?</a>
-            </div>
-          </section>
-        </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary" id="login_submit"> Log in</button>
+                </div>
+              </div>
+
+            <a href="#" class="forgot_password">Forgot password?</a>
+          </div>
+        </section>
       </div>
+    </div>
 
 
       <header>
@@ -256,6 +243,7 @@
       <script src="js/jquery.js"></script>
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
       <script>
+      var password;
       // Plugin options and our code
       $(".modal_trigger").leanModal({
         top: 100,
@@ -268,11 +256,13 @@
         $("#login_form").click(function() {
           $(".social_login").hide();
           $(".user_login").show();
+          $("modal_back").show();
+          $(".header_title").text('Log in');
           return false;
         });
 
         $("#signup_form").click(function() {
-          var password = $("#id_password1").val();
+          password = $("#id_password1").val();
           var passwordConfirm = $("#id_password2").val();
           if(password!=passwordConfirm){
             $("#id_password1").val('');
@@ -282,10 +272,12 @@
           }
           else{
             var email = $("#id_email").val();
-            console.log(email);
+            tosubmit();
             $('#login_email').val(email);
             $(".social_login").hide();
             $(".user_login").show();
+            $(".modal_back").show();
+            $(".header_title").text('Log in');
             return false;
           }
         });
@@ -299,14 +291,38 @@
         });
 
         // Going back to Social Forms
-        $(".back_btn").click(function() {
+        $(".modal_back").click(function() {
           $(".user_login").hide();
           $(".user_register").hide();
           $(".social_login").show();
-          $(".header_title").text('Login');
+          $(".modal_back").hide();
+          $(".header_title").text('Register');
           return false;
         });
+
+        // Storing user information
+        function tosubmit() {
+            console.log("toSubmit:");
+            var email = document.getElementById("id_email").value;
+            var password = document.getElementById("id_password1").value;
+            var firstName = document.getElementById("id_first_name").value;
+            console.log(email);
+            console.log(password);
+            console.log(firstName);
+
+          // Getting the value of your text input
+          if(typeof(Storage) !== "undefined") {
+            // Code for localStorage/sessionStorage.
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+            localStorage.setItem("firstName", firstName);
+          } else {
+            // Sorry! No Web Storage support..
+            console.log("Sorry! No Web Storage support..");
+          }
+        }
       });
+
       </script>
       <!-- Bootstrap Core JavaScript -->
       <script src="js/bootstrap.min.js"></script>
