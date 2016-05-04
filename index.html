@@ -51,13 +51,16 @@
             <li class="nav-button">
               <button type="submit" onclick="location.href='add_listing.html'" class="btn btn-default wow tada" style="visibility: visible;">List Your Restroom</button>
               <li class="page-scroll">
-                <a href="listings.html">View Listings</a>
+                <a href="listings.html" style="display:none;" id="view_listing_nav">View Listings</a>
               </li>
               <li class="page-scroll">
-                <a class="modal_trigger" href="#modal"> Sign Up</a>
+                <a class="modal_trigger" href="#modal" style="display:none;" id="sign_up_nav"> Sign Up</a>
               </li>
               <li class="page-scroll">
-                <a class="modal_trigger" href="#modal">Log In</a>
+                <a class="modal_trigger" href="#modal" style="display:none;" id="log_in_nav">Log In</a>
+              </li>
+              <li class="page-scroll">
+                <span style="display:none;" id="username_nav"></span>
               </li>
             </ul>
           </div>
@@ -79,7 +82,7 @@
             <!-- Social Login -->
             <div class="social_login">
               <div class = "">
-                <form class="form-horizontal">
+                <form class="form-horizontal" id='register_form' method="post">
                   <div class="form-group required">
                     <label class="col-md-5 control-label">First name</label>
                     <div class="col-md-7">
@@ -102,14 +105,14 @@
 
                   <div class="form-group required">
                     <label class="col-md-5 control-label">Password</label>
-                    <div class="col-md-7"><input class="form-control" id="id_password1" name="password1" placeholder="Password" required title="" type="password" />
+                    <div class="col-md-7"><input class="form-control" id="id_password1" name="password" placeholder="Password" required title="" type="password" />
                     </div>
                   </div>
 
                   <div class="form-group required">
                     <label class="col-md-5 control-label">Password (again)</label>
                     <div class="col-md-7">
-                      <input class="form-control" id="id_password2" name="password2" placeholder="Password (again)" required title="" type="password" />
+                      <input class="form-control" id="id_password2" name="confirmPassword" placeholder="Password (again)" required title="" type="password" />
                     </div>
                   </div>
 
@@ -124,20 +127,20 @@
 
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <input type="submit" class="btn btn-success" id="signup_form"/> 
+                      <input type="submit" class="btn btn-success">
                     </div>
                   </div>
                 </form>
               </div>
               <div class="action_btns">
                 <div class="one_half"><span class='memberSpan'>Already a member?</span></div>
-                <div class="one_half last"><a href="#" id="login_form" class="button">Log in</a></div>
+                <div class="one_half last"><a href="#" id="login_direct" class="button">Log in</a></div>
               </div>
             </div>
 
             <!-- Username & Password Login form -->
             <div class="user_login">
-              <form class='form-horizontal'>
+              <form class='form-horizontal' id="login_form" method="post">
                 <div class="form-group required">
                   <label class="col-md-5 control-label">E-mail</label>
                   <div class="col-md-7"><input class="form-control" id="login_email" name="email" placeholder="E-mail" required="required" title="" type="email" />
@@ -149,13 +152,13 @@
                   <div class="col-md-7"><input class="form-control" id="login_password" name="password1" placeholder="Password" required="required" title="" type="password" />
                   </div>
                 </div>
-              </form>
 
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-primary" id="login_submit"> Log in</button>
+                  <input type="submit" class="btn btn-primary">
                 </div>
               </div>
+            </form>
 
             <a href="#" class="forgot_password">Forgot password?</a>
           </div>
@@ -243,7 +246,8 @@
       <script src="js/jquery.js"></script>
       <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
       <script>
-      var password;
+      var email;
+
       // Plugin options and our code
       $(".modal_trigger").leanModal({
         top: 100,
@@ -252,18 +256,28 @@
       });
 
       $(function() {
+        //show listing if logged in
+        if(localStorage.getItem('logged_in')){
+          $('#view_listing').show();
+          $('#sign_up_nav').hide();
+        }
+        else{
+          $('#sign_up_nav').show();
+          $('#log_in_nav').show();
+        }
         // Calling Login Form
-        $("#login_form").click(function() {
+        $("#login_direct").click(function() {
           $(".social_login").hide();
           $(".user_login").show();
-          $("modal_back").show();
+          $(".modal_back").show();
           $(".header_title").text('Log in');
           return false;
         });
 
-        $("#signup_form").click(function() {
-          password = $("#id_password1").val();
+        $("#register_form").submit(function() {
+          var password = $("#id_password1").val();
           var passwordConfirm = $("#id_password2").val();
+          var email = $("#id_email").val();
           if(password!=passwordConfirm){
             $("#id_password1").val('');
             $("#id_password2").val('');
@@ -271,7 +285,6 @@
             return false;
           }
           else{
-            var email = $("#id_email").val();
             tosubmit();
             $('#login_email').val(email);
             $(".social_login").hide();
@@ -282,12 +295,28 @@
           }
         });
 
-        // Calling Register Form
-        $("#register_form").click(function() {
-          $(".social_login").hide();
-          $(".user_register").show();
-          $(".header_title").text('Register');
-          return false;
+        $('#login_form').submit(function() {
+          var login_email = $('#login_email').val();
+          var login_password = $('#login_password').val();
+          var true_email = localStorage.getItem("email");
+          var true_password = localStorage.getItem("password");
+
+          if(login_email==true_email && login_password==true_password){
+              console.log("redirecting..")
+              if(typeof(Storage) !== "undefined") {
+                // Code for localStorage/sessionStorage.
+                localStorage.setItem("logged_in", true);
+              } else {
+                // Sorry! No Web Storage support..
+                console.log("Sorry! No Web Storage support..");
+              }
+              window.location.href = "../g2g/listings.html";
+              return false
+          }
+          else{
+              alert("Email or Password does not match!")
+              return false;
+          }
         });
 
         // Going back to Social Forms
@@ -302,17 +331,14 @@
 
         // Storing user information
         function tosubmit() {
-            console.log("toSubmit:");
             var email = document.getElementById("id_email").value;
             var password = document.getElementById("id_password1").value;
             var firstName = document.getElementById("id_first_name").value;
-            console.log(email);
-            console.log(password);
-            console.log(firstName);
 
           // Getting the value of your text input
           if(typeof(Storage) !== "undefined") {
             // Code for localStorage/sessionStorage.
+            localStorage.setItem("registered", true);
             localStorage.setItem("email", email);
             localStorage.setItem("password", password);
             localStorage.setItem("firstName", firstName);
