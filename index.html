@@ -60,7 +60,10 @@
                 <a class="modal_trigger" href="#modal" style="display:none;" id="log_in_nav">Log In</a>
               </li>
               <li class="page-scroll">
-                <span style="display:none;" id="username_nav"></span>
+                <a style="display:none;" href="../g2g/listings.html" id="username_nav" onclick='username()'></a>
+              </li>
+              <li class="page-scroll">
+                <a style="display:none;" id="log_out_nav" onclick="logout()">Log Out</a>
               </li>
             </ul>
           </div>
@@ -248,6 +251,15 @@
       <script>
       var email;
 
+      function logout(){
+        localStorage.setItem('logged_in', false);
+        $('#view_listing').hide();
+        $('#username_nav').hide();
+        $('#sign_up_nav').show();
+        $('#log_in_nav').show();
+        $('#log_out_nav').hide();
+      };
+
       // Plugin options and our code
       $(".modal_trigger").leanModal({
         top: 100,
@@ -255,16 +267,37 @@
         closeButton: ".modal_close"
       });
 
-      $(function() {
-        //show listing if logged in
-        if(localStorage.getItem('logged_in')){
-          $('#view_listing').show();
-          $('#sign_up_nav').hide();
+      $("#log_in_nav").click(function(){
+        $(".user_login").show();
+        $(".modal_back").show();
+        $(".social_login").hide();
+        $(".header_title").text('Log in');
+        return false;
+      });
+
+
+      function username(){
+        if(localStorage.getItem('logged_in')=='true'){
+          window.location.href = "../g2g/listings.html";
         }
         else{
-          $('#sign_up_nav').show();
-          $('#log_in_nav').show();
+
         }
+      };
+
+      $(function() {
+        //show listing if logged in
+        if(localStorage.getItem('logged_in')=='true'){
+          $('#view_listing').show();
+          $('#sign_up_nav').hide();
+          $('#username_nav').text(localStorage.getItem('firstName'));
+          $('#username_nav').show();
+          $('#log_out_nav').show();
+        }
+        else{
+          logout()
+        }
+
         // Calling Login Form
         $("#login_direct").click(function() {
           $(".social_login").hide();
@@ -287,6 +320,12 @@
           else{
             tosubmit();
             $('#login_email').val(email);
+            $("#id_email").val('');
+            $("#id_first_name").val('');
+            $("#id_last_name").val('');
+            $("#id_password1").val('');
+            $("#id_password2").val('');
+            $("#id_tos").attr('checked',false);
             $(".social_login").hide();
             $(".user_login").show();
             $(".modal_back").show();
