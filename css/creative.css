@@ -142,6 +142,7 @@ aside {
     border-radius: 10px;
     border-color: #ed431f;
     text-align: left;
+    margin-top: 10px;
 }
 
 .panel-default {
@@ -169,7 +170,18 @@ header .header-content-listings {
 }
 
 
+.close-btn{
+  margin-left: 70%;
+  display: none;
+}
 
+#delete-listing{
+  text-align: center;
+}
+
+.panel-body:hover .close-btn{
+  display: block;
+}
 
 header {
     position: relative;
